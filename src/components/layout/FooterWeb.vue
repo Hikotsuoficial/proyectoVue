@@ -87,4 +87,18 @@
     }
 }
 
+@media screen and (max-width: 425px) {
+    .footer .feedbackLinks ul{
+        padding: 0 5px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .footer .feedbackLinks ul{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 2px;
+    }
+}
+
 </style>

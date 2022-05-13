@@ -43,4 +43,8 @@ nav a {
 nav a.router-link-exact-active {
   color:#e66f0f;
 }
+
+a.router-link-exact-active{
+  color:#e66f0f;
+}
 </style>

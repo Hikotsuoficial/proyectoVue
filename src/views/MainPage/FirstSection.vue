@@ -84,4 +84,25 @@
     }
 }
 
+@media screen and (max-width: 425px) {
+    .firstSection .title{
+      font-size: 2.2rem;  
+    }
+
+    .firstSection .intermediateText{
+      font-size: 1.8rem;  
+    }
+    .firstSection .intermediateText2{
+      font-size: 1.8rem;  
+    }
+    .firstSection .left .mastext{
+        font-size:0.9rem;
+        display:block;
+    }
+
+    .right .pointingimg1{
+        margin-top: 213px;
+        width:340px
+    }
+}
 </style>

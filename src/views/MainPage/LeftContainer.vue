@@ -33,6 +33,8 @@
 .sloganImgs{
     display: grid;
     grid-template-columns:repeat(2, 1fr);
+    grid-auto-rows: 200px;
+    grid-auto-flow: row dense;
     /* border: 1px solid red; */
 }
 
