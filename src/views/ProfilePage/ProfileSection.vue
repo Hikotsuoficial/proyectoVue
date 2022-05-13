@@ -1,38 +1,47 @@
 <template>
   <div class="profiles">
     <div class="asideSearch">
-      <div>
+      <div class="titleSectionAside">
         <h1 class="profileSectionTitle">Vamos al grano...</h1>
         <h3 class="">Filtra tú búsqueda.</h3>
       </div>
       <div class="divSearch">
         <form action="#" class="formSearch">
-          <label for="jobSelection"><strong> Escribe o Elije la profesion</strong> <br></label>
-            <input list="items" name="jobSelection" class="jobSelect">
+        <ul>
+          <li>
+            <label for="jobSelection"><strong> Escribe o Elije la profesion</strong></label>
+            <input list="items" name="jobSelection" class="jobSelect" v-model="job" required>
             <datalist id="items">
-              <option v-for="(jobsProfile, i) in jobsProfile" :key="i.id">{{ jobsProfile.job }}</option>
+              <option v-for="(jobs, i) in jobsProfile" :key="i">{{ jobs.job }}</option>
             </datalist>
-            <br>
-          <label for="jobPrice"><strong> Valor del trabajo que buscas (precio) </strong> <br></label>
-          <input type="number" name="jobPrice" class="jobSelect" placeholder="0">
-            <br>
-          <label for="jobUbication"><strong> Ubicación o ciudad </strong> <br></label>
-          <input list="ubicationCity" name="jobUbication" class="jobSelect">
+          </li>
+          <li>
+          <label for="jobPrice"><strong> Valor del trabajo que buscas (precio) </strong></label>
+          <input type="number" name="jobPrice" class="jobSelect" placeholder="0" v-model="price" required>
+          </li>
+          <li>
+          <label for="jobUbication"><strong> Ubicación o ciudad </strong></label>
+          <input list="ubicationCity" name="jobUbication" class="jobSelect" v-model="city" required>
             <datalist id="ubicationCity">
-              <option  v-for="(city, j) in ubicationCity" :key="j.id" >{{ city.city }}</option>
+              <option  v-for="(city, j) in ubicationCity" :key="j" >{{ city.city }}</option>
             </datalist>
+          </li>
+          <li>
+          <button class="btnSearch" @click.prevent="searchPersonProfile"> Buscar </button>
+          </li>
+        </ul>
         </form>
       </div>
     </div>
-    <div class="chooseProfileCard" >
-     <div class="chooseProfile" v-for="(p, index) in perfiles" :key="index.id">
-      <a href="#">
-        <img :src="p.src" alt="Foto de perfil " />
-        <p> {{ p.name }} {{ p.lastname }} </p> 
-        <p class="titleJob"> {{ p.profesion }} </p> 
-        <p class="pricejob">Servicio promedio ${{ p.tarifa }} </p>
-      </a>
-      </div>
+    <div class="chooseProfileCard" >     
+        <div class="chooseProfile" v-for="(p, index) in perfiles" :key="index">
+          <a href="#">
+            <img :src="p.src" alt="Foto de perfil " />
+            <p> {{ p.name }} {{ p.lastname }} </p> 
+            <p class="titleJob"> {{ p.profesion }} </p> 
+            <p class="pricejob">Servicio promedio ${{ p.tarifa }} </p>
+          </a>
+        </div>
     </div>
   </div>
 </template>
@@ -41,6 +50,7 @@
 import { defineComponent } from "@vue/runtime-core";
 
 export default defineComponent ({
+  el: 'ubicationCity',
   data() {
     return {
       perfiles: [
@@ -83,6 +93,25 @@ export default defineComponent ({
       {city: 'Pereira'},
       {city: 'Pasto'},
     ],
+    job: '',
+    price: 0,
+    city: '',
+    }
+  },
+  methods: {
+    searchPersonProfile() {
+
+      if (this.city === '' || this.price <= 0 || this.city === '') {
+        // alert('Llena todos los campos para realizar la búsqueda')
+        // this.job = '';
+        // this.price = 0;
+        // this.city = '';
+      }else {
+        console.log(this.city + " " + this.price + " " + this.job);
+        this.job = '';
+        this.price = 0;
+        this.city = '';
+      }
     }
   },
 })
@@ -128,21 +157,31 @@ input[type=number] {
   padding: 10px 0;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.profiles .divSearch ul li{
+  margin: 5px;
 }
 
 .divSearch .formSearch{
   border:1px solid rgba(123, 153, 52, 0.267);
   background-color: rgba(135, 158, 82, 0.082);
   width: 400px;
+  display: flex;
+  justify-content: center;
   border-radius: 5px;
 }
 
 .profiles .asideSearch{
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
   width: 25vw;
-  /* border: 1px solid red; */
+  border: 1px solid red;
   color: #444444;
+  margin: 5px auto;
 }
 
 .chooseProfile{
@@ -156,14 +195,14 @@ input[type=number] {
   color: #444444;
 }
 
-.profileSectionTitle{
+.asideSearch .profileSectionTitle{
   margin-top: 10px;
   font-weight: 700;
   font-size: 1.5rem;
   color: #444444;
 }
 
-.chooseProfileCard{
+.profiles .chooseProfileCard{
   display: flex;
   justify-content: center;
   /* border: 1px solid red; */
@@ -171,6 +210,9 @@ input[type=number] {
   flex-wrap: wrap;
   width: 80vw;
   padding: 10px 10px;
+  /* height: 800px;
+  overflow-x: hidden;
+  overflow-y: auto; */
 }
 
 .chooseProfile .titleJob{
@@ -193,6 +235,24 @@ input[type=number] {
 .chooseProfileCard .chooseProfile img{
   width: 250px;
   box-shadow: inset 3px 3px 10px 2px rgb(202, 202, 202);
+  
+}
+
+.profiles .divSearch .btnSearch{
+  padding:10px;
+  height: 50px;
+  width: 100px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 10px;
+  border:none;
+  border-radius: 6px;
+  color:white;
+  background-color: #2d4f5c;
+
+}
+
+@media screen and (max-width: 1024) {
   
 }
 

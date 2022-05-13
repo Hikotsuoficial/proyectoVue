@@ -28,7 +28,7 @@
                 <ul class="sectionlogin">
                     <li>
                         <a href="#">Login</a> |
-                        <a href="# "> Registrarse </a>
+                        <router-link to="/register"> Registrarse </router-link>
                         <img class="loginIcon" src="../../assets/img/login.png" alt="">
                     </li>
                 </ul>
@@ -46,6 +46,10 @@ export default ({
 </script>
 
 <style scoped>
+
+a:hover{
+    color:#e66f0f;
+}
 
 .logo{
     /* border: 1px solid red; */
