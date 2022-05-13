@@ -10,16 +10,16 @@
           <label for="jobSelection"><strong> Escribe o Elije la profesion</strong> <br></label>
             <input list="items" name="jobSelection" class="jobSelect">
             <datalist id="items">
-              <option v-for="(jobs, i) in jobs" :key="i.id" >{{ jobs.job }}</option>
+              <option v-for="(jobsProfile, i) in jobsProfile" :key="i.id">{{ jobsProfile.job }}</option>
             </datalist>
             <br>
           <label for="jobPrice"><strong> Valor del trabajo que buscas (precio) </strong> <br></label>
-          <input type="number" name="jobPrice" class="jobSelect">
+          <input type="number" name="jobPrice" class="jobSelect" placeholder="0">
             <br>
           <label for="jobUbication"><strong> Ubicación o ciudad </strong> <br></label>
           <input list="ubicationCity" name="jobUbication" class="jobSelect">
             <datalist id="ubicationCity">
-              <option  v-for="(jobs, i) in jobs" :key="i.id" >{{ jobs.job }}</option>
+              <option  v-for="(city, j) in ubicationCity" :key="j.id" >{{ city.city }}</option>
             </datalist>
         </form>
       </div>
@@ -54,10 +54,10 @@ export default defineComponent ({
         { name: 'Andrea', lastname: 'Martinez', profesion: 'Plomero', Edad: '37', country: 'Bucaramanga', tarifa: 4000 , src: require('@/assets/img/mujertrabajo.jpg') },
         { name: 'Juliana', lastname: 'Valencia', profesion: 'Pintor', Edad: '28', country: 'Chocó', tarifa: 50000, src: require('@/assets/img/mujertrabajo.jpg') },
         { name: 'Marllory', lastname: 'Mina', profesion: 'Abogada', Edad: '41', country: 'Cartagena', tarifa: 80000, src: require('@/assets/img/mujertrabajo.jpg') },
-        { name: 'Ana Maria', lastname: 'Álvarez', profesion: 'Estilista', Edad: '31', country: 'Medelln', tarifa: 70000, src: require('@/assets/img/mujertrabajo.jpg') },
-        { name: 'Karla', lastname: 'Martinez', profesion: 'Oficios Varios', Edad: '37', country: '´Manizales', tarifa: 4000 , src: require('@/assets/img/mujertrabajo.jpg') },
+        { name: 'Ana Maria', lastname: 'Álvarez', profesion: 'Estilista', Edad: '31', country: 'Medellín', tarifa: 70000, src: require('@/assets/img/mujertrabajo.jpg') },
+        { name: 'Karla', lastname: 'Martinez', profesion: 'Oficios Varios', Edad: '37', country: 'Manizales', tarifa: 4000 , src: require('@/assets/img/mujertrabajo.jpg') },
       ],
-    jobs: [
+    jobsProfile: [
       {job: 'Carpintero'},
       {job: 'Albañil'},
       {job: 'Fontanero'},
@@ -71,18 +71,36 @@ export default defineComponent ({
       {job: 'Cocinero'},
       {job: 'Lavandero'},
     ],
-  ubicationCity: [
-
+    ubicationCity: [
+      {city: 'Medellín'},
+      {city: 'Cali'},
+      {city: 'Bogotá'},
+      {city: 'Manizales'},
+      {city: 'Quibdó'},
+      {city: 'Santa Marta'},
+      {city: 'Cartagena'},
+      {city: 'Montería'},
+      {city: 'Pereira'},
+      {city: 'Pasto'},
     ],
     }
   },
 })
 
-// https://www.quicoto.com/wp-content/uploads/2016/07/fotografia-perfil-oficina-2.jpg
-
 </script>
 
 <style scoped>
+/* ocultar el arrow de input number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .profiles{
   display: flex;
   justify-content: center;

@@ -157,6 +157,13 @@ export default ({
  justify-content: center;
 }
 
+@media screen and (max-width: 1440px) {
+    .navBar{
+    display: Flex;
+    justify-content: space-around;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .navBar .navigationMenu li{
         padding: 0 10px;
