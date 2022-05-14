@@ -18,6 +18,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     background-color: rgb(47, 79, 66);
     padding: 0px 30px;
 }
