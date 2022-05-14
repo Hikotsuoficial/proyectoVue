@@ -8,26 +8,26 @@
       <div class="divSearch">
         <form action="#" class="formSearch">
         <ul>
+          <li><label for="jobSelection"><strong> Escribe o Elije la profesion</strong></label></li>
           <li>
-            <label for="jobSelection"><strong> Escribe o Elije la profesion</strong></label>
             <input list="items" name="jobSelection" class="jobSelect" v-model="job" required>
             <datalist id="items">
               <option v-for="(jobs, i) in jobsProfile" :key="i">{{ jobs.job }}</option>
             </datalist>
           </li>
+          <li><label for="jobPrice"><strong> Valor del trabajo que buscas (precio) </strong></label></li>
           <li>
-          <label for="jobPrice"><strong> Valor del trabajo que buscas (precio) </strong></label>
           <input type="number" name="jobPrice" class="jobSelect" placeholder="0" v-model="price" required>
           </li>
+          <li><label for="jobUbication"><strong> Ubicación o ciudad </strong></label></li>
           <li>
-          <label for="jobUbication"><strong> Ubicación o ciudad </strong></label>
           <input list="ubicationCity" name="jobUbication" class="jobSelect" v-model="city" required>
             <datalist id="ubicationCity">
               <option  v-for="(city, j) in ubicationCity" :key="j" >{{ city.city }}</option>
             </datalist>
           </li>
           <li>
-          <button class="btnSearch" @click.prevent="searchPersonProfile"> Buscar </button>
+            <button class="btnSearch" @click.prevent="searchPersonProfile"> Buscar </button>
           </li>
         </ul>
         </form>
@@ -136,106 +136,40 @@ input[type=number] {
   /* background-image: url('../../assets/img/background.jpeg'); */
 }
 
-.asideSearch .jobSelect {
-  height: 40px;
-  width: 300px;
+.profiles .asideSearch {
   padding-left:15px;
   padding-right: 15px;
-  border:none;
-  /* border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px; */
   border-radius: 5px;
   font-size: 1rem;
   font-weight: 600;
-  background-color: #ffffff; 
-  border:1px solid rgba(123, 153, 52, 0.267);
-  margin: 10px 0;
-}
-
-.profiles .divSearch{
-  margin: 20px 0px;
-  padding: 10px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.profiles .divSearch ul li{
-  margin: 5px;
-}
-
-.divSearch .formSearch{
-  border:1px solid rgba(123, 153, 52, 0.267);
-  background-color: rgba(135, 158, 82, 0.082);
-  width: 400px;
-  display: flex;
-  justify-content: center;
-  border-radius: 5px;
-}
-
-.profiles .asideSearch{
-  display: flex;
-  justify-content: center;
-  /* flex-direction: column; */
-  flex-wrap: wrap;
+  color: #444444;
+  margin: 0 auto;
   width: 25vw;
-  border: 1px solid red;
-  color: #444444;
-  margin: 5px auto;
 }
 
-.chooseProfile{
-  /* background-color:#2f4f42; */
-  border:5px solid #ffffff;
-  box-shadow: 0px 1px 2px #c7c7c7;
-}
-
-.chooseProfile a{
-  text-decoration: none;
-  color: #444444;
-}
-
-.asideSearch .profileSectionTitle{
+.profiles .asideSearch .profileSectionTitle{
   margin-top: 10px;
   font-weight: 700;
   font-size: 1.5rem;
   color: #444444;
 }
 
-.profiles .chooseProfileCard{
-  display: flex;
-  justify-content: center;
-  /* border: 1px solid red; */
-  color: #444444;
-  flex-wrap: wrap;
-  width: 80vw;
-  padding: 10px 10px;
-  /* height: 800px;
-  overflow-x: hidden;
-  overflow-y: auto; */
+.profiles .divSearch{
+  border:1px solid rgba(123, 153, 52, 0.267);
+  background-color: rgba(135, 158, 82, 0.082);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 20px 0;
 }
 
-.chooseProfile .titleJob{
-  font-weight: 600;
-  font-size: 1.5rem;
-  color: #dd610e;
-}
-
-.chooseProfile .pricejob{
-  font-size: 0.8rem;
-}
-
-.chooseProfileCard .chooseProfile{
-    margin: 10px;
-    padding-bottom: 10px;
-    /* border:1px solid #5c5c5c; */
-    /* box-shadow: 0px 1px 6px #b8b8b8; */
-    /* border-radius: 4px; */
-}
-.chooseProfileCard .chooseProfile img{
-  width: 250px;
-  box-shadow: inset 3px 3px 10px 2px rgb(202, 202, 202);
-  
+.profiles .divSearch .jobSelect{
+    text-align: center;
+    height: 45px;
+    font-weight: 400;
+    border: 1px solid rgba(109, 109, 109, 0.507);
+    border-radius: 5px;
+    padding: 0 10px;
+    width: 270px;
 }
 
 .profiles .divSearch .btnSearch{
@@ -249,11 +183,67 @@ input[type=number] {
   border-radius: 6px;
   color:white;
   background-color: #2d4f5c;
-
 }
 
-@media screen and (max-width: 1024) {
-  
+.profiles .divSearch ul li{
+  margin: 5px;
+}
+
+.chooseProfileCard{
+  width: 75vw;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.chooseProfileCard .chooseProfile{
+  border:5px solid #ffffff;
+  box-shadow: 0px 1px 2px #c7c7c7;
+  color: #444444;
+  padding: 10px 10px;
+  width: 250px;
+  display: flex;
+  margin: 10px;
+}
+
+ .chooseProfileCard .chooseProfile .titleJob{
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #dd610e;
+}
+
+.chooseProfileCard .chooseProfile .pricejob{
+  font-size: 0.8rem;
+}
+
+.chooseProfileCard .chooseProfile img{
+  width: 250px;
+  box-shadow: inset 3px 3px 10px 2px rgb(202, 202, 202);
+}
+
+.chooseProfileCard .chooseProfile a{
+  text-decoration: none;
+  color: #444444;
+}
+
+@media screen and (max-width: 1024px) {
+.profiles .divSearch .jobSelect{
+    width: 280px;
+}
+}
+
+@media screen and (max-width: 768px) {
+.profiles .divSearch .jobSelect{
+    width: 190px;
+}
+
+.chooseProfileCard .chooseProfile{
+  width: 300px;
+}
+}
+
+.profiles .asideSearch {
+width: 350px;
 }
 
 </style>
