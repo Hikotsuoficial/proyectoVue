@@ -227,23 +227,32 @@ input[type=number] {
 }
 
 @media screen and (max-width: 1024px) {
-.profiles .divSearch .jobSelect{
-    width: 280px;
-}
+    .profiles .divSearch .jobSelect{
+        width: 280px;
+    }
+    .profiles .asideSearch {
+      width: 350px;
+    }
 }
 
 @media screen and (max-width: 768px) {
-.profiles .divSearch .jobSelect{
-    width: 190px;
+    .profiles .divSearch .jobSelect{
+        width: 220px;
+    }
+
+    .chooseProfileCard .chooseProfile{
+      width: 300px;
+    }
 }
 
-.chooseProfileCard .chooseProfile{
-  width: 300px;
-}
-}
+@media screen and (max-width: 425px) {
+  .profiles{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* background-image: url('../../assets/img/background.jpeg'); */
+  }
 
-.profiles .asideSearch {
-width: 350px;
 }
 
 </style>

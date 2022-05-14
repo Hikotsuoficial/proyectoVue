@@ -4,6 +4,7 @@
             <div>
                 <logo-img />
             </div>
+            <div>
             <nav>
                 <ul class="navigationMenu">
                     <li><router-link to="/">INICIO</router-link> </li>
@@ -12,6 +13,7 @@
                     <li><router-link to="/contact">CONTACTO</router-link></li>
                 </ul>
             </nav>
+            </div>
             <div class="searchAndRegisterContainer">
                 <form action="#" class="formSearch">
                     <span><img class="iconSearch" src="../../assets/img/SearchLupe.png" alt="Icono de búsqueda"/></span>
@@ -182,6 +184,28 @@ a:hover{
 
     .loginIcon{
         display: none;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .navBar{
+    height: 200px;
+    }
+    .navBar .textSearch{
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .navBar{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 280px;
+    }
+    .navBar .textSearch{
+        width: 250px;
     }
 }
 
