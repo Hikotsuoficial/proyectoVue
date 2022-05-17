@@ -2,21 +2,21 @@
     <div class="footer">
         <div class="feedbackLinks">
             <ul class="footerNav">
-                <li><h2> Contacto </h2> </li>
+                <li><strong> Contacto</strong></li>
                 <li><a href="#">Terminos y condiciones</a></li>
                 <li><a href="#">Nosotros</a></li>
                 <li><a href="#">Contacto</a></li>
                 <li><a href="#">Ayuda</a></li>
             </ul>
             <ul class="footerNav">
-                <li><h2> Preguntas frecuentes(FAQ) </h2> </li>
+                <li><strong>Preguntas frecuentes(FAQ)</strong></li>
                 <li><a href="#">¿Quienes somos?</a></li>
                 <li><a href="#">¿Cómo puedo hacer parte?</a></li>
                 <li><a href="#">¿Cómo buscar?</a></li>
                 <li><a href="#">Ayuda</a></li>
             </ul>
             <ul class="footerNav">
-                <li><h2> Redes </h2> </li>
+                <li><strong>Redes </strong> </li>
                 <li><a href="#">¿Quienes somos?</a></li>
                 <li><a href="#">¿Cómo puedo hacer parte?</a></li>
                 <li><a href="#">¿Cómo buscar?</a></li>
@@ -33,6 +33,11 @@
 </template>
 
 <style scoped>
+
+strong{
+    color:white;
+    font-size: 1rem;
+}
 .footer{
     justify-content: center;
     align-items: center;
@@ -90,6 +95,9 @@
 @media screen and (max-width: 425px) {
     .footer .feedbackLinks ul{
         padding: 0 5px;
+    }
+    .footer .footerNav li{
+        font-size: 0.7rem;
     }
 }
 

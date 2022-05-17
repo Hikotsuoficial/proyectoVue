@@ -10,18 +10,18 @@
         <ul>
           <li><label for="jobSelection"><strong> Escribe o Elije la profesion</strong></label></li>
           <li>
-            <input list="items" name="jobSelection" class="jobSelect" v-model="job" required>
+            <input list="items" name="jobSelection" class="jobSelect" v-model="SearchJob.job" required>
             <datalist id="items">
               <option v-for="(jobs, i) in jobsProfile" :key="i">{{ jobs.job }}</option>
             </datalist>
           </li>
           <li><label for="jobPrice"><strong> Valor del trabajo que buscas (precio) </strong></label></li>
           <li>
-          <input type="number" name="jobPrice" class="jobSelect" placeholder="0" v-model="price" required>
+          <input type="number" name="jobPrice" class="jobSelect" placeholder="0" v-model="SearchJob.price" required>
           </li>
           <li><label for="jobUbication"><strong> Ubicación o ciudad </strong></label></li>
           <li>
-          <input list="ubicationCity" name="jobUbication" class="jobSelect" v-model="city" required>
+          <input list="ubicationCity" name="jobUbication" class="jobSelect" v-model="SearchJob.city" required>
             <datalist id="ubicationCity">
               <option  v-for="(city, j) in ubicationCity" :key="j" >{{ city.city }}</option>
             </datalist>
@@ -93,24 +93,27 @@ export default defineComponent ({
       {city: 'Pereira'},
       {city: 'Pasto'},
     ],
-    job: '',
-    price: 0,
-    city: '',
+    SearchJob: {
+      job: '',
+      price: 0,
+      city: '',
+    },
+
     }
   },
   methods: {
     searchPersonProfile() {
 
-      if (this.city === '' || this.price <= 0 || this.city === '') {
+      if (this.SearchJob.job === '' || this.SearchJob.price <= 0 || this.SearchJob.city === '') {
         // alert('Llena todos los campos para realizar la búsqueda')
         // this.job = '';
         // this.price = 0;
         // this.city = '';
       }else {
-        console.log(this.city + " " + this.price + " " + this.job);
-        this.job = '';
-        this.price = 0;
-        this.city = '';
+        console.log(this.SearchJob.city + " " + this.SearchJob.price + " " + this.SearchJob.job);
+        this.SearchJob.job = '';
+        this.SearchJob.price = 0;
+        this.SearchJob.city = '';
       }
     }
   },

@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import index from '../views/HomeView.vue'
 import UserRegister from '@/views/Registrer/UserRegister.vue'
+import Us from '@/views/Contact/ProfilesContact.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -19,7 +20,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/us',
     name: 'us',
-    component: index
+    component: Us
   },
   {
     path: '/contact',

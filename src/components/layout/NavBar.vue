@@ -10,7 +10,7 @@
                     <li><router-link to="/">INICIO</router-link> </li>
                     <li><router-link to="/profiles">PERFILES</router-link></li>
                     <!-- <li><router-link to="/us">NOSOTROS</router-link></li> -->
-                    <li><router-link to="/contact">CONTACTO</router-link></li>
+                    <li><router-link to="/us">NOSOTROS</router-link></li>
                 </ul>
             </nav>
             </div>
@@ -208,5 +208,9 @@ a:hover{
         width: 250px;
     }
 }
+
+
+
+
 
 </style>
