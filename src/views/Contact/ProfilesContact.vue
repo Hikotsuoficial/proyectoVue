@@ -7,7 +7,7 @@
             <div class="registerContainer">
                 <div class="descriptionContainer">
                     <p class="description">
-                        Somos una empresa que te impulsa a trabajar o expande tu trabjao,<br> <strong>si lo haces bien</strong> eres bienvenido.
+                        Somos una empresa que te impulsa a trabajar y a expandir tú trabjao,<br> <strong>si lo haces bien</strong> eres bienvenido.
                     </p>
                     <img src="@/assets/img/ponitin2.png" alt="Persona señalando">
                 </div>
@@ -24,8 +24,9 @@
                     </ul>
                 </form> -->
             </div>
-            <div class="registerContainer">
+            <div class="registerContainer2">
                 <div>
+                    <img src="@/assets/img/ponitin2.png" alt="Persona señalando">
                     <p class="description">
                         Tambien hacemos que tú vida sea mas facil, porque tienes a la mano una experiencia
                         y es una persona sabe de su arte. Sal al paso rapido asi como un app de transporte pero 
@@ -53,8 +54,7 @@
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
-    margin: 20px 0;
-    background-color: #3f3f3f15;
+    background-color: #3f3f3f0a;
 }
 
 .contactContainer .registerContainer .descriptionContainer{

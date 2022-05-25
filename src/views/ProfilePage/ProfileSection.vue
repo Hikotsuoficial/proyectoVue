@@ -33,7 +33,12 @@
         </form>
       </div>
     </div>
-    <div class="chooseProfileCard" >     
+    <div class="position" v-if="!aparecer">
+      <h1> Sin resultados :/ </h1>
+      <div>{{ jobFa }}</div>
+    </div>
+    
+    <div class="chooseProfileCard" > 
         <div class="chooseProfile" v-for="(p, index) in perfiles" :key="index">
           <a href="#">
             <img :src="p.src" alt="Foto de perfil " />
@@ -58,6 +63,7 @@ export default defineComponent ({
         { name: 'Carolina', lastname: 'Mina', profesion: 'Enfermera', Edad: '41', country: 'Cali', tarifa: 80000, src: require('@/assets/img/mujertrabajo.jpg') },
         { name: 'Marcela', lastname: 'Álvarez', profesion: 'Profesora', Edad: '31', country: 'Barranquilla', tarifa: 70000, src: require('@/assets/img/mujertrabajo.jpg') },
         { name: 'Erick', lastname: 'Martinez', profesion: 'Cantante', Edad: '37', country: 'Bogota', tarifa: 4000 , src: require('@/assets/img/mujertrabajo.jpg') },
+        { name: 'Maria', lastname: 'Martinez', profesion: 'Cantante', Edad: '37', country: 'Bogota', tarifa: 4000 , src: require('@/assets/img/mujertrabajo.jpg') },
         { name: 'Ramon', lastname: 'Valencia', profesion: 'Mesera', Edad: '28', country: 'Pereria', tarifa: 50000, src: require('@/assets/img/mujertrabajo.jpg') },
         { name: 'Carlos', lastname: 'Mina', profesion: 'Jardinero', Edad: '41', country: 'Pasto', tarifa: 80000, src: require('@/assets/img/mujertrabajo.jpg') },
         { name: 'Lina', lastname: 'Álvarez', profesion: 'Editor', Edad: '31', country: 'Cali', tarifa: 70000, src: require('@/assets/img/mujertrabajo.jpg') },
@@ -98,22 +104,30 @@ export default defineComponent ({
       price: 0,
       city: '',
     },
-
+    aparecer: true,
+    jobFa: {},
     }
   },
   methods: {
     searchPersonProfile() {
-
+      
       if (this.SearchJob.job === '' || this.SearchJob.price <= 0 || this.SearchJob.city === '') {
         // alert('Llena todos los campos para realizar la búsqueda')
         // this.job = '';
         // this.price = 0;
         // this.city = '';
+        this.aparecer = true;
       }else {
-        console.log(this.SearchJob.city + " " + this.SearchJob.price + " " + this.SearchJob.job);
-        this.SearchJob.job = '';
+        console.log(this.SearchJob.job + " " + this.SearchJob.price + " " + this.SearchJob.city);
+        // consiguiendo los perfiles que coinciden
+        this.jobFa = this.perfiles.filter((trabajo) => trabajo.profesion === this.SearchJob.job);
+        console.log(this.jobFa);
+
         this.SearchJob.price = 0;
         this.SearchJob.city = '';
+        this.SearchJob.job = '';
+        this.aparecer = false;
+        // this.jobFa = jobF;
       }
     }
   },
@@ -148,6 +162,17 @@ input[type=number] {
   color: #444444;
   margin: 0 auto;
   width: 25vw;
+}
+
+.position{
+  position:flex;
+  flex-wrap: wrap;
+  margin: 20px;
+  color:black;
+  background-color: white;
+  width: 800px;
+  height: 300px;
+  border:1px solid rgb(58, 58, 58);
 }
 
 .profiles .asideSearch .profileSectionTitle{
@@ -186,6 +211,11 @@ input[type=number] {
   border-radius: 6px;
   color:white;
   background-color: #2d4f5c;
+}
+
+.profiles .divSearch .btnSearch:hover{
+  background-color: #2d5c41;
+
 }
 
 .profiles .divSearch ul li{
