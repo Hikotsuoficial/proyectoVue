@@ -33,8 +33,8 @@
         </form>
       </div>
     </div>
-    <div class="position" v-if="!aparecer">
-      <h1> Sin resultados :/ </h1>
+    <div class="position" v-if="aparecer">
+      
       <div class="chooseProfile" v-for="(search,  result) in jobFa" :key="result">
           <a href="#">
             <img :src="search['src']" alt="Foto de perfil " />
@@ -44,6 +44,7 @@
           </a>
       </div>
     </div>
+    <div v-else  class="position"> <h1> Sin resultados :/ </h1></div>
     
     <div class="chooseProfileCard" > 
         <div class="chooseProfile" v-for="(p, index) in perfiles" :key="index">
@@ -66,19 +67,19 @@ export default defineComponent ({
   data() {
     return {
       perfiles: [
-        { name: 'Juan', lastname: 'Valencia', profesion: 'Carpintero', Edad: '28', country: 'Medellín', tarifa: 50000, src: 'https://www.quicoto.com/wp-content/uploads/2016/07/fotografia-perfil-oficina-2.jpg' },
-        { name: 'Carolina', lastname: 'Mina', profesion: 'Enfermera', Edad: '41', country: 'Cali', tarifa: 80000, src: require('@/assets/img/mujertrabajo.jpg') },
-        { name: 'Marcela', lastname: 'Álvarez', profesion: 'Profesora', Edad: '31', country: 'Barranquilla', tarifa: 70000, src: require('@/assets/img/mujertrabajo.jpg') },
-        { name: 'Erick', lastname: 'Martinez', profesion: 'Cantante', Edad: '37', country: 'Bogota', tarifa: 4000 , src: require('@/assets/img/mujertrabajo.jpg') },
-        { name: 'Maria', lastname: 'Martinez', profesion: 'Cantante', Edad: '37', country: 'Bogota', tarifa: 4000 , src: require('@/assets/img/mujertrabajo.jpg') },
-        { name: 'Ramon', lastname: 'Valencia', profesion: 'Mesera', Edad: '28', country: 'Pereria', tarifa: 50000, src: require('@/assets/img/mujertrabajo.jpg') },
-        { name: 'Carlos', lastname: 'Mina', profesion: 'Jardinero', Edad: '41', country: 'Pasto', tarifa: 80000, src: require('@/assets/img/mujertrabajo.jpg') },
-        { name: 'Lina', lastname: 'Álvarez', profesion: 'Editor', Edad: '31', country: 'Cali', tarifa: 70000, src: require('@/assets/img/mujertrabajo.jpg') },
-        { name: 'Andrea', lastname: 'Martinez', profesion: 'Plomero', Edad: '37', country: 'Bucaramanga', tarifa: 4000 , src: require('@/assets/img/mujertrabajo.jpg') },
-        { name: 'Juliana', lastname: 'Valencia', profesion: 'Pintor', Edad: '28', country: 'Chocó', tarifa: 50000, src: require('@/assets/img/mujertrabajo.jpg') },
-        { name: 'Marllory', lastname: 'Mina', profesion: 'Abogada', Edad: '41', country: 'Cartagena', tarifa: 80000, src: require('@/assets/img/mujertrabajo.jpg') },
-        { name: 'Ana Maria', lastname: 'Álvarez', profesion: 'Estilista', Edad: '31', country: 'Medellín', tarifa: 70000, src: require('@/assets/img/mujertrabajo.jpg') },
-        { name: 'Karla', lastname: 'Martinez', profesion: 'Oficios Varios', Edad: '37', country: 'Manizales', tarifa: 4000 , src: require('@/assets/img/mujertrabajo.jpg') },
+        { name: 'Alejandra', lastname: 'Valencia', profesion: 'Carpintero', Edad: '28', country: 'Medellín', tarifa: 50000, src: require('@/assets/img/perfiles/per0.jpg') },
+        { name: 'Manuel', lastname: 'Mina', profesion: 'Enfermera', Edad: '41', country: 'Cali', tarifa: 80000, src: require('@/assets/img/perfiles/per1.jpg') },
+        { name: 'Marcela', lastname: 'Álvarez', profesion: 'Profesora', Edad: '31', country: 'Barranquilla', tarifa: 70000, src: require('@/assets/img/perfiles/per2.jpg') },
+        { name: 'Erick', lastname: 'Martinez', profesion: 'Cantante', Edad: '37', country: 'Bogota', tarifa: 4000 , src: require('@/assets/img/perfiles/per3.jpg') },
+        { name: 'Maria', lastname: 'Martinez', profesion: 'Cantante', Edad: '37', country: 'Bogota', tarifa: 4000 , src: require('@/assets/img/perfiles/per4.jpg') },
+        { name: 'Ramon', lastname: 'Valencia', profesion: 'Mesera', Edad: '28', country: 'Pereria', tarifa: 50000, src: require('@/assets/img/perfiles/per5.jpg') },
+        { name: 'Carlos', lastname: 'Mina', profesion: 'Jardinero', Edad: '41', country: 'Pasto', tarifa: 80000, src: require('@/assets/img/perfiles/per6.jpg') },
+        { name: 'Leandro', lastname: 'Álvarez', profesion: 'Editor', Edad: '31', country: 'Cali', tarifa: 70000, src: require('@/assets/img/perfiles/per7.jpg') },
+        { name: 'Ernesto', lastname: 'Martinez', profesion: 'Plomero', Edad: '37', country: 'Bucaramanga', tarifa: 4000 , src: require('@/assets/img/perfiles/per8.jpg') },
+        { name: 'Juliana', lastname: 'Valencia', profesion: 'Pintor', Edad: '28', country: 'Chocó', tarifa: 50000, src: require('@/assets/img/perfiles/per9.jpg') },
+        { name: 'Marllory', lastname: 'Mina', profesion: 'Abogada', Edad: '41', country: 'Cartagena', tarifa: 80000, src: require('@/assets/img/perfiles/per10.jpg') },
+        { name: 'Ana Maria', lastname: 'Álvarez', profesion: 'Estilista', Edad: '31', country: 'Medellín', tarifa: 70000, src: require('@/assets/img/perfiles/per11.jpg') },
+        { name: 'José', lastname: 'Martinez', profesion: 'Oficios Varios', Edad: '37', country: 'Manizales', tarifa: 4000 , src: require('@/assets/img/perfiles/per12.jpg') },
       ],
     jobsProfile: [
       {job: 'Carpintero'},

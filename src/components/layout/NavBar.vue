@@ -29,7 +29,7 @@
             <div>
                 <ul class="sectionlogin">
                     <li>
-                        <a href="#">Login</a> |
+                        <router-link to="/login">Login</router-link> |
                         <router-link to="/register"> Registrarse </router-link>
                         <img class="loginIcon" src="../../assets/img/login.png" alt="">
                     </li>
