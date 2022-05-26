@@ -25,7 +25,7 @@
                 </form> -->
             </div>
             <div class="registerContainer2">
-                <div>
+                <!-- <div>
                     <img src="@/assets/img/ponitin2.png" alt="Persona señalando">
                     <p class="description">
                         Tambien hacemos que tú vida sea mas facil, porque tienes a la mano una experiencia
@@ -33,7 +33,7 @@
                         pero tus susceso cotidianos.
                         <strong>si lo haces bien</strong>  eres bienvenido.
                     </p>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

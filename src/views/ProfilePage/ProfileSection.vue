@@ -35,7 +35,14 @@
     </div>
     <div class="position" v-if="!aparecer">
       <h1> Sin resultados :/ </h1>
-      <div>{{ jobFa }}</div>
+      <div class="chooseProfile" v-for="(search,  result) in jobFa" :key="result">
+          <a href="#">
+            <img :src="search['src']" alt="Foto de perfil " />
+            <p> {{ search['name'] }} {{ search['lastname'] }} </p> 
+            <p class="titleJob"> {{ search['profesion'] }} </p> 
+            <p class="pricejob">Servicio promedio ${{ search['tarifa'] }} </p>
+          </a>
+      </div>
     </div>
     
     <div class="chooseProfileCard" > 
@@ -127,7 +134,6 @@ export default defineComponent ({
         this.SearchJob.city = '';
         this.SearchJob.job = '';
         this.aparecer = false;
-        // this.jobFa = jobF;
       }
     }
   },
@@ -171,7 +177,6 @@ input[type=number] {
   color:black;
   background-color: white;
   width: 800px;
-  height: 300px;
   border:1px solid rgb(58, 58, 58);
 }
 
