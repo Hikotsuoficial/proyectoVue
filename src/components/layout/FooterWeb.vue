@@ -17,10 +17,10 @@
             </ul>
             <ul class="footerNav">
                 <li><strong>Redes </strong> </li>
-                <li><a href="#">¿Quienes somos?</a></li>
-                <li><a href="#">¿Cómo puedo hacer parte?</a></li>
-                <li><a href="#">¿Cómo buscar?</a></li>
-                <li><a href="#">Ayuda</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">instagram</a></li>
+                <li><a href="#">Youtube</a></li>
+                <li><a href="#">Twitter</a></li>
             </ul>
         </div>
         <div>

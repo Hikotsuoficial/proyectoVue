@@ -34,7 +34,6 @@
       </div>
     </div>
     <div class="position" v-if="aparecer">
-      
       <div class="chooseProfile" v-for="(search,  result) in jobFa" :key="result">
           <a href="#">
             <img :src="search['src']" alt="Foto de perfil " />
@@ -44,8 +43,7 @@
           </a>
       </div>
     </div>
-    <div v-else  class="position"> <h1> Sin resultados :/ </h1></div>
-    
+    <div v-else-if="!noresult" class="position" > <h1> Sin resultados :/ </h1></div>
     <div class="chooseProfileCard" > 
         <div class="chooseProfile" v-for="(p, index) in perfiles" :key="index">
           <a href="#">
@@ -63,7 +61,6 @@
 import { defineComponent } from "@vue/runtime-core";
 
 export default defineComponent ({
-  el: 'ubicationCity',
   data() {
     return {
       perfiles: [
@@ -112,29 +109,35 @@ export default defineComponent ({
       price: 0,
       city: '',
     },
-    aparecer: true,
+    aparecer: false,
+    noresult: true,
     jobFa: {},
     }
   },
   methods: {
     searchPersonProfile() {
-      
       if (this.SearchJob.job === '' || this.SearchJob.price <= 0 || this.SearchJob.city === '') {
         // alert('Llena todos los campos para realizar la búsqueda')
         // this.job = '';
         // this.price = 0;
         // this.city = '';
-        this.aparecer = true;
+        this.aparecer = false;
+        this.noresult = false;
       }else {
-        console.log(this.SearchJob.job + " " + this.SearchJob.price + " " + this.SearchJob.city);
+        // console.log(this.SearchJob.job + " " + this.SearchJob.price + " " + this.SearchJob.city);
         // consiguiendo los perfiles que coinciden
         this.jobFa = this.perfiles.filter((trabajo) => trabajo.profesion === this.SearchJob.job);
-        console.log(this.jobFa);
+        console.log(typeof this.jobFa);
 
-        this.SearchJob.price = 0;
-        this.SearchJob.city = '';
-        this.SearchJob.job = '';
-        this.aparecer = false;
+        // this.SearchJob.price = 0;
+        // this.SearchJob.city = '';
+        // this.SearchJob.job = '';
+
+        if (this.jobFa ===  '') {
+          this.noresult = false;
+        }else{
+          this.aparecer = true;
+        }
       }
     }
   },
@@ -178,7 +181,11 @@ input[type=number] {
   color:black;
   background-color: white;
   width: 800px;
-  border:1px solid rgb(58, 58, 58);
+  /* border:1px solid rgb(58, 58, 58); */
+}
+
+.nohay {
+  color:black
 }
 
 .profiles .asideSearch .profileSectionTitle{
@@ -220,7 +227,7 @@ input[type=number] {
 }
 
 .profiles .divSearch .btnSearch:hover{
-  background-color: #2d5c41;
+  background-color: #df851f;
 
 }
 
