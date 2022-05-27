@@ -34,6 +34,7 @@
       </div>
     </div>
     <div class="position" v-if="aparecer">
+      <h1> Resultados de tu busqueda</h1>
       <div class="chooseProfile" v-for="(search,  result) in jobFa" :key="result">
           <a href="#">
             <img :src="search['src']" alt="Foto de perfil " />
@@ -118,9 +119,6 @@ export default defineComponent ({
     searchPersonProfile() {
       if (this.SearchJob.job === '' || this.SearchJob.price <= 0 || this.SearchJob.city === '') {
         // alert('Llena todos los campos para realizar la búsqueda')
-        // this.job = '';
-        // this.price = 0;
-        // this.city = '';
         this.aparecer = false;
         this.noresult = false;
       }else {
@@ -176,7 +174,7 @@ input[type=number] {
 
 .position{
   position:flex;
-  flex-wrap: wrap;
+  justify-content: center;
   margin: 20px;
   color:black;
   background-color: white;
@@ -241,6 +239,40 @@ input[type=number] {
   justify-content: center;
   flex-wrap: wrap;
 }
+
+/** CSS PARA RESULTADO DE BUSQUEDA */
+.position .chooseProfile{
+  border:5px solid #ffffff;
+  box-shadow: 0px 1px 2px #c7c7c7;
+  color: #444444;
+  padding: 10px 10px;
+  width: 250px;
+  display: flex;
+  margin: 10px;
+}
+
+ .position .chooseProfile .titleJob{
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #dd610e;
+}
+
+.position .chooseProfile .pricejob{
+  font-size: 0.8rem;
+}
+
+.position .chooseProfile img{
+  width: 250px;
+  box-shadow: inset 3px 3px 10px 2px rgb(202, 202, 202);
+}
+
+.position .chooseProfile a{
+  text-decoration: none;
+  color: #444444;
+}
+
+
+/** CSS PARA PERFILES POR DEFECTO */
 
 .chooseProfileCard .chooseProfile{
   border:5px solid #ffffff;
